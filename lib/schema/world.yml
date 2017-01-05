@@ -1,0 +1,11 @@
+id: /World
+title: 'World description'
+type: object
+properties:
+  name:
+    type: string
+  description:
+    type: string
+required:
+  - name
+additionalProperties: false
