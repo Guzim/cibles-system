@@ -6,7 +6,7 @@ properties:
     type: String
   Cases:
     type: array
-    cases: {number, number}
+    cases: {x:number, y:number}
 required:
   - name
 additionalProperties: false
