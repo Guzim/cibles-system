@@ -1,0 +1,12 @@
+id: /Zone
+title: 'Cases avec une valeur'
+type: object
+properties:
+  valeur: 
+    type: String
+  Cases:
+    type: array
+    cases: {number, number}
+required:
+  - name
+additionalProperties: false
