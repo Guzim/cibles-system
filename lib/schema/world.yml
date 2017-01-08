@@ -6,8 +6,12 @@ properties:
     type: string
   description:
     type: string
-  basics: array of basic
-  targets: array of target
+  basics: 
+    type: array
+    $ref: ./Basic
+  targets:
+    type: array
+    $ref: ./Target
 required:
   - name
   - basics
