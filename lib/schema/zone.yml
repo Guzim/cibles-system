@@ -4,9 +4,10 @@ type: object
 properties:
   valeur: 
     type: String
-  Cases:
+  cases:
     type: array
     cases: {x:number, y:number}
 required:
-  - name
+  - valeur
+  - cases
 additionalProperties: false
