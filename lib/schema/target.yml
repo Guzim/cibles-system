@@ -1,0 +1,15 @@
+id: /Target
+title: 'Cibles utilisées dans un monde'
+type: object
+properties:
+  name: 
+    type: String
+  img:
+    type: url
+  zones:
+    type: array
+    $ref: ./Zone
+required:
+  - name
+  - img
+additionalProperties: false
