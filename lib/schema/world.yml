@@ -6,10 +6,10 @@ properties:
     type: string
   description:
     type: string
-  characteristics: array of caracteristic
+  basics: array of basic
   targets: array of target
 required:
   - name
-  - caracteristics
+  - basics
   - targets
 additionalProperties: false
