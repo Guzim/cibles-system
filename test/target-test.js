@@ -7,7 +7,9 @@ const sizeOfImage = require('image-size')
 
 const Target = require('../lib/target')
 
-//var myTarget = new Target('Fire target', '/Users/selim/Documents/Programmation/target/target-src/cibles-system/resources/grid-human.png')
+//var myTarget = new Target('Fire target',
+// '/Users/selim/Documents/Programmation/target/target-src/cibles-system/
+// resources/grid-human.png')
 var myTarget = new Target('Fire target', './resources/grid-human.png')
 describe('Target', () => {
   it ('has a name', () => {

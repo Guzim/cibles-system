@@ -1,5 +1,2 @@
-# Exclude npm package management
-package.json
-
 # Exclude node module directory
 node_modules/
