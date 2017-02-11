@@ -5,7 +5,7 @@
   "main": "lib/server.js",
   "engines": {
     "node": "6.9.5"
-  }
+  },
   "directories": {
     "test": "test"
   },
