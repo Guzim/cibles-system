@@ -1,0 +1,41 @@
+{
+  "name": "target-rpg",
+  "version": "1.0.0",
+  "description": "Target management for Target RPG system",
+  "main": "lib/server.js",
+  "engines": {
+    "node": "6.9.5"
+  }
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "image-type": "^3.0.0",
+    "image-size": "^0.5.1",
+    "chai-http": "^3.0.0",
+    "read-chunk": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guzim/cibles-system.git"
+  },
+  "keywords": [
+    "Target",
+    "RPG",
+    "JDR",
+    "Cible"
+  ],
+  "author": "Guzim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guzim/cibles-system/issues"
+  },
+  "homepage": "https://github.com/Guzim/cibles-system#readme"
+}
