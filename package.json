@@ -27,6 +27,9 @@
     "type": "git",
     "url": "git+https://github.com/Guzim/cibles-system.git"
   },
+  "config": {
+    "port":"1992"
+  },
   "keywords": [
     "Target",
     "RPG",
