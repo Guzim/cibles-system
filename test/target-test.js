@@ -1,6 +1,5 @@
 // Test a target
 const chai = require('chai')
-//require('./helpers/image-helper')
 const readChunk = require('read-chunk')
 const imageType = require('image-type')
 const sizeOfImage = require('image-size')
