@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "image-type": "^3.0.0",
-    "image-size": "^0.5.1",
     "chai-http": "^3.0.0",
+    "express": "^4.14.1",
+    "image-size": "^0.5.1",
+    "image-type": "^3.0.0",
     "read-chunk": "^2.0.0"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
     "url": "git+https://github.com/Guzim/cibles-system.git"
   },
   "config": {
-    "port":"1992"
+    "port": "1992"
   },
   "keywords": [
     "Target",
