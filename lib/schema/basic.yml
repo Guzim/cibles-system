@@ -1,9 +1,0 @@
-id: /Basic
-title: 'Basique d'un monde'
-type: object
-properties:
-  name: 
-    type: String
-required:
-  - name
-additionalProperties: false
