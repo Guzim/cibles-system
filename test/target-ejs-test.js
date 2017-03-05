@@ -7,7 +7,7 @@ const expect = chai.expect
 const asser = chai.assert
 
 
-var server = require("../lib/server")
+var server = require("../server")
 describe('Entry parameters', ()=>{
   it('Should have the intial impact in entry parameters')
   it('Should have the adjustement in entry parameters')

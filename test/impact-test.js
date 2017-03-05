@@ -1,5 +1,5 @@
 const chai = require('chai')
-const constants = require('../lib/constants')
+const constants = require('../config/constants')
 const Impact = require('../lib/impact')
 
 var impact1 = new Impact(7, 2)

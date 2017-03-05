@@ -2,7 +2,7 @@
   "name": "target-rpg",
   "version": "1.0.0",
   "description": "Target management for Target RPG system",
-  "main": "lib/server.js",
+  "main": "server.js",
   "engines": {
     "node": "6.9.5"
   },
@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "^2.5.5",
     "express": "^4.14.1",
+    "googleapis": "^17.1.0",
     "image-size": "^0.5.1",
     "image-type": "^3.0.0",
     "read-chunk": "^2.0.0"
@@ -22,7 +23,7 @@
     "chai-http": "^3.0.0"
   },
   "scripts": {
-    "start": "node lib/server.js",
+    "start": "node server.js",
     "test": "mocha"
   },
   "repository": {

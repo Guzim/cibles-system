@@ -7,7 +7,7 @@ const should = chai.should()
 const expect = chai.expect
 const asser = chai.assert
 
-var server = require("../lib/server")
+var server = require("../server")
 
 describe('Server', () => {
   it('Up and running', () => {
