@@ -2,15 +2,11 @@
 
 <html lang='fr'>
   <head>
-    <meta charset='utf-8'/>
-    <link href='target.css' rel='stylesheet' type='text/css'/>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <% include includes/head-global %>
+    <% include includes/head-bootstrap %>
     <title><%= targetTitle%></title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   </head>
-  <body id='mybody' onload='placeImpact()'>
+  <body id='mybody' onload='initPage()'>
     <!-- Title line -->
     <div class='row'>
       <div class='col-sm-12'><h1><%= targetTitle%></h1></div>
@@ -22,8 +18,12 @@
           <image xlink:href='<%= targetImage%>' id='targetBackground'/>
           <circle id='initI'
             cx='0' cy='0' r='1'
-            stroke='black' stroke-width='3' fill='Lime'>
+            stroke='black' stroke-width='3' fill='Lime'/>
+          <circle id='finalI'
+            cx='0' cy='0' r='1'
+            stroke='black' stroke-width='3' fill='Crimson'/>
         </svg>
+
       </div>
     </div>
     <!-- Legend -->
@@ -53,8 +53,15 @@
 
 <script>
   var onclick = ((x) => {
+    // TODO: Check that the impact is not out of bound
+
+    // Calculate distance to the initial impact
     var dist = distanceToImpact(x.clientX, x.clientY)
     document.getElementById('dist').innerHTML = 'Distance : ' + dist.toString()
+
+    // Display the new target
+    var rec = document.getElementById('targetBackground').getBoundingClientRect()
+    placeImpact('finalI', x.clientX-rec.left, x.clientY-rec.top)
   })
 
 
@@ -75,12 +82,16 @@
    return Math.abs(<%= targetIImpX %> - pixelToSquare(x-rec.left)) +
           Math.abs(<%= targetIImpY %> - pixelToSquare(y-rec.top))
  })
-  var placeImpact = (() => {
-    var px = squareToPixel(<%= targetIImpX %>)
-    var py = squareToPixel(<%= targetIImpY %>)
-    document.getElementById('initI').setAttribute('cx', px)
-    document.getElementById('initI').setAttribute('cy', py)
-    document.getElementById('initI').setAttribute('r', squareSize/2)
+  var placeImpact = ((element, px, py) => {
+    document.getElementById(element).setAttribute('cx', px)
+    document.getElementById(element).setAttribute('cy', py)
+    document.getElementById(element).setAttribute('r', squareSize/2)
+  })
+
+  var initPage = (() => {
+    placeImpact('initI',
+      squareToPixel(<%= targetIImpX %>),
+      squareToPixel(<%= targetIImpY %>))
   })
 
 </script>
