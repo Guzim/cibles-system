@@ -5,12 +5,13 @@ const express = require ('express')
 const constants = require ('./config/constants')
 const Target = require ('./lib/target')
 const Impact = require ('./lib/impact')
-const oAuth2 = require ('./lib/connect.js')
+//const oAuth2 = require ('./lib/connect.js')
 
 
 var PORT = process.env.PORT || constants.PORT
 
 var targetApp = express()
+
 targetApp.use(express.static('resources'))
 var server = targetApp.listen(PORT, ()=> {
   console.log('Server is listening')
@@ -18,12 +19,10 @@ var server = targetApp.listen(PORT, ()=> {
 targetApp.get('/', homePage)
 targetApp.get('/target', targetPage)
 
-var everyone = require('now').initialize(server)
-
-// module.exports = targetApp
+module.exports = targetApp
 
 function targetPage(req, res) {
-  var myTarget = new Target('Fire target', 'whitewolf.jpg')
+  var myTarget = new Target('Fire target', 'laposte.png')
   var myImpact = new Impact(12,5)
   res.render('target.ejs', {
    targetTitle: myTarget.name,

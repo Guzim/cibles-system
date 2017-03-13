@@ -15,7 +15,6 @@
     "googleapis": "^17.1.0",
     "image-size": "^0.5.1",
     "image-type": "^3.0.0",
-    "now": "^4.7.1",
     "read-chunk": "^2.0.0"
   },
   "devDependencies": {
