@@ -1,0 +1,88 @@
+<script>
+function addCarouselControl(carouselId) {
+  var chevron = document.createElement("a")
+  chevron.setAttribute("class", "left carousel-control")
+  chevron.setAttribute("href", "#" + carouselId)
+  chevron.setAttribute("role", "button")
+  chevron.setAttribute("data-slide", "prev")
+  var span = document.createElement("span")
+  span.setAttribute("class", "glyphicon glyphicon-chevron-left")
+  span.setAttribute("aria-hidden", "true")
+  chevron.appendChild(span)
+  span = document.createElement("span")
+  span.setAttribute("class", "sr-only")
+  span.appendChild(document.createTextNode("Précédent"))
+  chevron.appendChild(span)
+  document.getElementById(carouselId).appendChild(chevron)
+
+  chevron = document.createElement("a")
+  chevron.setAttribute("class", "right carousel-control")
+  chevron.setAttribute("href", "#" + carouselId)
+  chevron.setAttribute("role", "button")
+  chevron.setAttribute("data-slide", "next")
+  var span = document.createElement("span")
+  span.setAttribute("class", "glyphicon glyphicon-chevron-right")
+  span.setAttribute("aria-hidden", "true")
+  chevron.appendChild(span)
+  span = document.createElement("span")
+  span.setAttribute("class", "sr-only")
+  span.appendChild(document.createTextNode("Suivant"))
+  chevron.appendChild(span)
+  document.getElementById(carouselId).appendChild(chevron)
+}
+
+function addItemToCarousel(wrapperId, itemJson) {
+  // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false }
+  // div for the current item
+  var item = document.createElement("div")
+  if (itemJson.active) {
+    item.setAttribute("class", "item active")
+  }
+  else {
+    item.setAttribute("class", "item")
+  }
+  document.getElementById(wrapperId).appendChild(item)
+  // image for the current item
+  var img = document.createElement("img")
+  //img.setAttribute("class", "d-block img-fluid")
+  img.setAttribute("alt", itemJson.alternativeText)
+  img.setAttribute("src", itemJson.image)
+  img.setAttribute("width", 600)
+  img.setAttribute("height", 400)
+  item.appendChild(img)
+
+  //caption for the current item
+}
+
+function addIndicatorsToCarousel(carouselId, itemNumber) {
+  var listHeader = document.createElement("ol")
+  listHeader.setAttribute("class", "carousel-indicators")
+  document.getElementById(carouselId).appendChild(listHeader)
+  for (let count = 0; count < itemNumber; count++) {
+    let listItem = document.createElement("li")
+    listItem.setAttribute("data-target", "#" +  carouselId)
+    listItem.setAttribute("data-slide-to", count)
+    if (count==0) {
+      listItem.setAttribute("class", "active")
+    }
+    listHeader.appendChild(listItem)
+  }
+}
+
+function addWrapperToCarousel(carouselId, wrapperId) {
+  var wrapper = document.createElement("div")
+  wrapper.setAttribute("class", "carousel-inner")
+  wrapper.setAttribute("role", "listbox")
+  wrapper.setAttribute("id", wrapperId)
+  document.getElementById(carouselId).appendChild(wrapper)
+}
+
+function addCarouselToContainer(containerId, carouselId) {
+  var carou = document.createElement("div")
+  carou.setAttribute("id", carouselId)
+  carou.setAttribute("class", "carousel slide")
+  carou.setAttribute("data-ride", "carousel")
+  //carou.setAttribute("data-interval", 2000)
+  document.getElementById(containerId).appendChild(carou)
+}
+</script>

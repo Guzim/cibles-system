@@ -12,9 +12,11 @@
   "dependencies": {
     "ejs": "^2.5.5",
     "express": "^4.14.1",
+    "fs": "0.0.1-security",
     "googleapis": "^17.1.0",
     "image-size": "^0.5.1",
     "image-type": "^3.0.0",
+    "js-yaml": "^3.8.3",
     "read-chunk": "^2.0.0"
   },
   "devDependencies": {

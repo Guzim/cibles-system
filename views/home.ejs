@@ -6,22 +6,45 @@
     <% include includes/head-bootstrap %>
     <% include includes/head-google %>
   </head>
-  <body>
+  <body onload="buildUpUniversCarousel()">
     <div class='container-fluid'>
       <div class='row'>
-        <div class='col-sm-4'>
-          <div>
-            <a href='target'>Main page</a>
-          </div>
-        </div>
-        <div class='col-sm-8'>
+        <!-- Ligne de connexion -->
+        <div class='col-sm-12'>
           <div class='g-signin2' data-onsuccess="onSignIn"></div>
           <div>
             <a href="#" onclick="signOut();">Sign out</a>
-
           </div>
         </div>
+      <!-- Fin de ligne de connexion -->
+      </div>
+      <div class='row'>
+        <!-- Caroussel d'univers -->
+        <div class='col-sm-12' id='univers'></div>
       </div>
   </body>
   <% include tools/google %>
-<html>
+  <% include tools/carousel %>
+  <script>
+  function buildUpUniversCarousel() {
+    var carouselId="carouselUnivers"
+    var wrapperId="wrapperUnivers"
+    var univers = <%- universList %>
+    var first=true
+    addCarouselToContainer('univers', carouselId)
+    addIndicatorsToCarousel(carouselId, univers.univers.length)
+    addWrapperToCarousel(carouselId, wrapperId)
+    for (let u of univers.univers) {
+      addItemToCarousel(wrapperId, {
+        name: u.name,
+        image: u.backgroundImage,
+        alternativeText: u.description,
+        active: first
+      })
+      first=false
+    }
+    addCarouselControl(carouselId)
+    }
+
+  </script>
+  </html>

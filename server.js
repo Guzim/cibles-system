@@ -1,12 +1,9 @@
 // My nodejs server
 const http = require('http')
 const express = require ('express')
+const homePage = require('./routes/home.js')
 
 const constants = require ('./config/constants')
-const Target = require ('./lib/target')
-const Impact = require ('./lib/impact')
-//const oAuth2 = require ('./lib/connect.js')
-
 
 var PORT = process.env.PORT || constants.PORT
 
@@ -17,7 +14,6 @@ var server = targetApp.listen(PORT, ()=> {
   console.log('Server is listening')
 })
 targetApp.get('/', homePage)
-targetApp.get('/target', targetPage)
 
 module.exports = targetApp
 
@@ -33,8 +29,4 @@ function targetPage(req, res) {
    targetAdjustement: 6,
    targetSquareSize: constants.IMG_SIZE/constants.GRID_SIZE
   })
-}
-
-function homePage(req, res) {
-  res.render('home.ejs')
 }

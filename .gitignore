@@ -1,2 +1,5 @@
 # Exclude node module directory
 node_modules/
+
+#Exclude logs
+*.log
