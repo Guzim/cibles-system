@@ -15,10 +15,11 @@ var server = targetApp.listen(PORT, ()=> {
 })
 targetApp.get('/', homePage)
 
+/*
 targetApp.get('/univer/*', univerPage)
 
 targetApp.get('/target/*', targetPage)
-
+*/
 module.exports = targetApp
 
 function targetPage(req, res) {

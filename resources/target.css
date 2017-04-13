@@ -1,7 +1,7 @@
-img.targetImg {
+.targetImg {
   /* Border */
   border-style: solid;
-  border-color: 'Peru';
+  border-color: Peru;
   border-radius: 10px;
   border-width: thin;
 }

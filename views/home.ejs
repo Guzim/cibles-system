@@ -8,20 +8,15 @@
   </head>
   <body onload="buildUpUniversCarousel()">
     <div class='container-fluid'>
-      <div class='row'>
-        <!-- Ligne de connexion -->
+      <div class='row'> <!-- Ligne de connexion -->
         <div class='col-sm-12'>
           <div class='g-signin2' data-onsuccess="onSignIn"></div>
-          <div>
-            <a href="#" onclick="signOut();">Sign out</a>
-          </div>
+          <div><a href="#" onclick="signOut();">Sign out</a></div>
         </div>
-      <!-- Fin de ligne de connexion -->
-      </div>
-      <div class='row'>
-        <!-- Caroussel d'univers -->
+      </div>  <!-- Fin de ligne de connexion -->
+      <div class='row'> <!-- Ligne caroussel d'univers -->
         <div class='col-sm-12' id='univers'></div>
-      </div>
+      </div> <!-- Fin de ligne caroussel d'univers -->
   </body>
   <% include tools/google %>
   <% include tools/carousel %>
