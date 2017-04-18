@@ -1,0 +1,13 @@
+Lanfeust:
+    basiques:
+      - Constitution: "La constitution du personnage représente son endurance, sa santé physique, sa force physique, sa résistance physique, sa résistance aux maladies, etc ..."
+      - Coordination: "La coordination représente l’agilité, la dextérité, la souplesse, la rapidité du personnage. On utilise ce basique pour les combats à distance."
+      - Agressivité: "L’agressivité représente la rage du personnage à survivre, sa capacité à cogner fort pour faire mal. Elle est utilisée pour tous les combats au corps à corps, avec ou sans arme, avec arme improvisée ou pas. On l’utilise aussi pour les tirs à portée courte des pistolets."
+      - Pugnacité: "(survie) : la pugnacité servira à la fois pour les compétences d’intelligence, d’instinct, de connaissance et de survie. Elle sera aussi utilisée pour tester le courage."
+      - Sociabilité: "Toute interaction sociale se basera sur ce basique."
+      - Discrétion: "Se cacher, dissimuler un objet, marcher sans faire de bruit, etc ..."
+      - Vigilance: "Capacité d’observation, acuité sensorielle, mais également, capacité à rester éveillé et concentré lors d’un tour de garde."
+    basesCaracteristiques: "Trois caractéristiques à 6, trois à 10 et une à 14. Vous disposez de 4 points en tout à répartir dans une ou plusieurs caractéristiques à votre guise"
+    target:
+      - humain: "grid-human.png"
+      - zombie: "grid-zombie.png"

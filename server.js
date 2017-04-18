@@ -16,7 +16,7 @@ var server = targetApp.listen(PORT, ()=> {
 })
 targetApp.get('/', homePage)
 
-targetApp.get('/univers/*', universPage)
+targetApp.get('/univers/:universName', universPage)
 /*
 targetApp.get('/target/*', targetPage)
 */

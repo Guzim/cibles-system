@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 
+<!-- Display one univers grid collection -->
 <html lang='fr'>
   <head>
     <% include includes/head-global %>
     <% include includes/head-bootstrap %>
     <% include includes/head-google %>
   </head>
-  <body>
-    <p><%- req %></p>
+  <body onload="buildUpUnivers()">
+    <div class='container-fluid'>
+      <div class='row'> <!-- Ligne de titre -->
+        <div class='col-sm-12'><h1 id='universName' /></div>
+      </div> <!-- Fin ligne de titre -->
+      <div class='row'> <!-- Ligne de description -->
+        <div class='col-sm-3'>
+          <img id ='unviversBackgroundImage' width='170' height='170' />
+        </div>
+        <div class='col-sm-9'><p id='universDescription' /></div>
+      </div> <!-- Fin ligne de description -->
+      <div class = 'row'> <!-- Ligne de basiques -->
+      </div> <!-- Fin ligne de basiques -->
+      <div class = 'row'> <!-- Ligne de règle de répartition -->
+      </div> <!-- Fin ligne de règle de répartition -->
+      <div class = 'row'> <!-- En tête pour les cibles -->
+        <div class='col-sm-12'><h1>Cibles disponibles</h1></div>
+      </div> <!-- Fin d'en tête pour les cibles -->
+      <div class = 'row'> <!-- Thumbnail de cibles -->
+      </div> <!-- fin de Thumbnail de cibles -->
+
+    </div>
   </body>
-</html>  
+  <% include tools/google %>
+  <% include tools/carousel %>
+  <script>
+  function buildUpUnivers() {
+    var universData = <%- universData %>
+    var thisunivers = <%- thisunivers %>
+    document.getElementById('universName').innerHTML = thisunivers.name
+    document.getElementById('universDescription').innerHTML = thisunivers.description
+    document.getElementById('unviversBackgroundImage').setAttribute("src", thisunivers.backgroundImage)
+    for (let basique of unviversData.basiques) {
+      addBasique(basique, "")
+    }
+  }
+  </script>
+  </html>
