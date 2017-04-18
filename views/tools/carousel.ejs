@@ -1,4 +1,25 @@
 <script>
+function addCaptionToCarouselItem(item, itemJson) {
+  var link = document.createElement("a")
+  link.setAttribute("class", "btn btn-lg btn-primary")
+  link.setAttribute("href", "http://localhost:1992/" + itemJson.type + "/"+ itemJson.name)
+  link.appendChild(document.createTextNode("Go to " + itemJson.name + " " + itemJson.type))
+
+  var title = document.createElement("h1")
+  title.appendChild(document.createTextNode(itemJson.name))
+
+  var caption = document.createElement("div")
+  caption.setAttribute("class", "carousel-caption")
+
+  var container = document.createElement("div")
+  container.setAttribute("class", "container")
+
+  caption.appendChild(title)
+  caption.appendChild(link)
+  container.appendChild(caption)
+  item.appendChild(container)
+}
+
 function addCarouselControl(carouselId) {
   var chevron = document.createElement("a")
   chevron.setAttribute("class", "left carousel-control")
@@ -32,7 +53,7 @@ function addCarouselControl(carouselId) {
 }
 
 function addItemToCarousel(wrapperId, itemJson) {
-  // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false }
+  // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false, type: univer/target }
   // div for the current item
   var item = document.createElement("div")
   if (itemJson.active) {
@@ -51,6 +72,7 @@ function addItemToCarousel(wrapperId, itemJson) {
   img.setAttribute("height", 400)
   item.appendChild(img)
   //caption for the current item
+  addCaptionToCarouselItem(item, itemJson)
 }
 
 function addIndicatorsToCarousel(carouselId, itemNumber) {
@@ -71,7 +93,6 @@ function addIndicatorsToCarousel(carouselId, itemNumber) {
 function addWrapperToCarousel(carouselId, wrapperId) {
   var wrapper = document.createElement("div")
   wrapper.setAttribute("class", "carousel-inner")
-  //wrapper.setAttribute("role", "listbox")
   wrapper.setAttribute("id", wrapperId)
   document.getElementById(carouselId).appendChild(wrapper)
 }
