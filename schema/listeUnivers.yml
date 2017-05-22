@@ -1,5 +1,5 @@
 id: /ListeUnivers
-title: 'Liste des univers'
+title: "Liste des univers"
 type: array
 minItems: 1
 items:
