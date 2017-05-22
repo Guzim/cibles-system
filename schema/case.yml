@@ -1,0 +1,12 @@
+id: /Case
+title: "One case in a zone"
+type: Object
+properties:
+  abscissa:
+    type: number
+  ordinate:
+    type: number
+required:
+  - abscissa
+  - ordinate
+additionalProperties: false

@@ -1,0 +1,24 @@
+id: /Univers
+title: "Un univers en particulier"
+type: Object
+properties:
+  name:
+    type: string
+  description:
+    type: string
+  image:
+    type: url
+  basiques:
+    $ref: ./Basiques
+  basesCarac:
+    type: string
+  targets:
+    $ref: ./Targets
+required:
+  - name
+  - description
+  - image
+  - basiques
+  - basesCaracteristiques
+  - targets
+additionalProperties: false

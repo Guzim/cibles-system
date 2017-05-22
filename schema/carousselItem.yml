@@ -1,0 +1,17 @@
+id: /CarousselItem
+title: "Une image du caroussel"
+type: Object
+properties:
+  name:
+    type: string
+  description:
+    type: string
+  image:
+    type: url
+  link:
+    type: url
+required:
+  - name
+  - image
+  - link
+additionalProperties: false

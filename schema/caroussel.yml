@@ -1,0 +1,7 @@
+id: /Caroussel
+title: "Un caroussel"
+type: array
+minItems: 1
+items:
+  $ref: ./carousselItem
+additionalProperties: false

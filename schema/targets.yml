@@ -1,0 +1,7 @@
+id: /Targets
+title: "List of targets for one univers"
+type: array
+minItems: 1
+items:
+  $ref: ./Target
+additionalProperties: false

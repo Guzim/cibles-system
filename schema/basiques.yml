@@ -1,0 +1,7 @@
+id: /Basiques
+title: "List of basiques for one univers"
+type: array
+minItems: 1
+items:
+  $ref: ./Basique
+additionalProperties: false

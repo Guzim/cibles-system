@@ -1,0 +1,7 @@
+id: /Cases
+title: "List of cases for one zone"
+type: array
+minItems: 1
+items:
+  $ref: ./Case
+additionalProperties: false

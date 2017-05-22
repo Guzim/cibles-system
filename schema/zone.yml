@@ -1,0 +1,12 @@
+id: /Zone
+title: "One zone in a target"
+type: Object
+properties:
+  name:
+    type: string
+  cases:
+    $ref: ./Cases
+required:
+  - name
+  - cases
+additionalProperties: false
