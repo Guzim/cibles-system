@@ -7,13 +7,8 @@ Display a + to add grid (?)
 var YAML=require('js-yaml')
 var fs=require('fs')
 
-
 function universPage(req, res) {
   // Check the univers exists in the list
-  var thisunivers = { 'name': req.params.universName,
-                      'description':'',
-                      'backgroundImage': ''
-                    }
   var doc
   try {
     doc = YAML.safeLoad(fs.readFileSync('./data/univers.yml',
@@ -21,24 +16,29 @@ function universPage(req, res) {
   } catch (e) {
     console.log(e);
   }
+
+  var thisunivers = {
+    name: "",
+    description: "",
+    backgroundImage: ""
+  }
   for (let u of doc.univers) {
-    console.log("mon debug: " + JSON.stringify(thisunivers) + " compare to  " + JSON.stringify(u))
-    if (thisunivers.name == u.name) {
+    if (req.params.universName == u.name) {
+      thisunivers.name = u.name
       thisunivers.description = u.description
       thisunivers.backgroundImage = u.backgroundImage
+      break;
     }
   }
-
-  if (!thisunivers.backgroundImage) {
+  if (!thisunivers.name) {
     //404
-    console.log("Pas de " + thisunivers.name + " dans la liste des univers")
+    console.log("Pas de " + req.params.universName + " dans la liste des univers")
     return
   }
-
-
   // Get data for the univers
+  var docUnivers
   try {
-    doc = YAML.safeLoad(fs.readFileSync('./data/' + thisunivers.name + '.yml',
+    docUnivers = YAML.safeLoad(fs.readFileSync('./data/' + thisunivers.name + '.yml',
       'utf8'), {json: true});
   } catch (e) {
     console.log(e);

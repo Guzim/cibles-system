@@ -5,3 +5,14 @@
   border-radius: 10px;
   border-width: thin;
 }
+
+div.c-wrapper{
+    width: 80%; /* for example */
+    margin: auto;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img{
+width: 600px; /* use this, or not */
+margin: auto;
+}

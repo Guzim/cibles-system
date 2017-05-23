@@ -14,24 +14,10 @@ targetApp.use(express.static('resources'))
 var server = targetApp.listen(PORT, ()=> {
   console.log('Server is listening')
 })
+
 targetApp.get('/', homePage)
 
 targetApp.get('/univers/:universName', universPage)
-/*
-targetApp.get('/target/*', targetPage)
-*/
-module.exports = targetApp
 
-function targetPage(req, res) {
-  var myTarget = new Target('Fire target', 'laposte.png')
-  var myImpact = new Impact(12,5)
-  res.render('target.ejs', {
-   targetTitle: myTarget.name,
-   targetImage: myTarget.background,
-   targetIImpX: myImpact.x,
-   targetIImpY: myImpact.y,
-   targetImp: myImpact, // Ajout
-   targetAdjustement: 6,
-   targetSquareSize: constants.IMG_SIZE/constants.GRID_SIZE
-  })
-}
+
+module.exports = targetApp

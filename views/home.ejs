@@ -7,17 +7,15 @@
     <% include includes/head-google %>
   </head>
   <body onload="buildUpUniversCarousel()">
-    <div class='container-fluid'>
-      <div class='row'> <!-- Ligne de connexion -->
-        <div class='col-sm-12'>
-          <div class='g-signin2' data-onsuccess="onSignIn"></div>
-          <div><a href="#" onclick="signOut();">Sign out</a></div>
-        </div>
-      </div>  <!-- Fin de ligne de connexion -->
-      <div class='row'> <!-- Ligne caroussel d'univers -->
-        <div class='col-sm-12' id='univers'></div>
-      </div> <!-- Fin de ligne caroussel d'univers -->
-    </div>
+    <div class='row'> <!-- Ligne de connexion -->
+      <div class='col-sm-12'>
+        <div class='g-signin2' data-onsuccess="onSignIn"></div>
+        <div><a href="#" onclick="signOut();">Sign out</a></div>
+      </div>
+    </div>  <!-- Fin de ligne de connexion -->
+    <div class='row'> <!-- Ligne caroussel d'univers -->
+      <div class='col-sm-12 container-fluid' id='univers'></div>
+    </div> <!-- Fin de ligne caroussel d'univers -->
   </body>
   <% include tools/google %>
   <% include tools/carousel %>

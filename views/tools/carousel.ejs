@@ -1,25 +1,4 @@
 <script>
-function addCaptionToCarouselItem(item, itemJson) {
-  var link = document.createElement("a")
-  link.setAttribute("class", "btn btn-lg btn-primary")
-  link.setAttribute("href", "http://localhost:1992/" + itemJson.type + "/"+ itemJson.name)
-  link.appendChild(document.createTextNode("Go to " + itemJson.name + " " + itemJson.type))
-
-  var title = document.createElement("h1")
-  title.appendChild(document.createTextNode(itemJson.name))
-
-  var caption = document.createElement("div")
-  caption.setAttribute("class", "carousel-caption")
-
-  var container = document.createElement("div")
-  container.setAttribute("class", "container")
-
-  caption.appendChild(title)
-  caption.appendChild(link)
-  container.appendChild(caption)
-  item.appendChild(container)
-}
-
 function addCarouselControl(carouselId) {
   var chevron = document.createElement("a")
   chevron.setAttribute("class", "left carousel-control")
@@ -52,6 +31,27 @@ function addCarouselControl(carouselId) {
   document.getElementById(carouselId).appendChild(chevron)
 }
 
+function addCaptionToCarouselItem(item, itemJson) {
+  var link = document.createElement("a")
+  link.setAttribute("class", "btn btn-lg btn-primary")
+  link.setAttribute("href", "http://localhost:1992/" + itemJson.type + "/"+ itemJson.name)
+  link.appendChild(document.createTextNode("Go to " + itemJson.name + " " + itemJson.type))
+
+  var title = document.createElement("h1")
+  title.appendChild(document.createTextNode(itemJson.name))
+
+  var caption = document.createElement("div")
+  caption.setAttribute("class", "carousel-caption")
+
+  var container = document.createElement("div")
+  container.setAttribute("class", "container")
+
+  caption.appendChild(title)
+  caption.appendChild(link)
+  container.appendChild(caption)
+  item.appendChild(container)
+}
+
 function addItemToCarousel(wrapperId, itemJson) {
   // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false, type: univer/target }
   // div for the current item
@@ -75,6 +75,13 @@ function addItemToCarousel(wrapperId, itemJson) {
   addCaptionToCarouselItem(item, itemJson)
 }
 
+function addWrapperToCarousel(carouselId, wrapperId) {
+  var wrapper = document.createElement("div")
+  wrapper.setAttribute("class", "carousel-inner")
+  wrapper.setAttribute("id", wrapperId)
+  document.getElementById(carouselId).appendChild(wrapper)
+}
+
 function addIndicatorsToCarousel(carouselId, itemNumber) {
   var listHeader = document.createElement("ol")
   listHeader.setAttribute("class", "carousel-indicators")
@@ -88,13 +95,6 @@ function addIndicatorsToCarousel(carouselId, itemNumber) {
     }
     listHeader.appendChild(listItem)
   }
-}
-
-function addWrapperToCarousel(carouselId, wrapperId) {
-  var wrapper = document.createElement("div")
-  wrapper.setAttribute("class", "carousel-inner")
-  wrapper.setAttribute("id", wrapperId)
-  document.getElementById(carouselId).appendChild(wrapper)
 }
 
 function addCarouselToContainer(containerId, carouselId) {
