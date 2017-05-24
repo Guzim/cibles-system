@@ -53,7 +53,7 @@ function addCaptionToCarouselItem(item, itemJson) {
 }
 
 function addItemToCarousel(wrapperId, itemJson) {
-  // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false, type: univer/target }
+  // Expected : itemJsonObject : {name: xxx, image: xxx, alternativeText: xxx, active: true/false, type: univers/target }
   // div for the current item
   var item = document.createElement("div")
   if (itemJson.active) {
@@ -67,7 +67,7 @@ function addItemToCarousel(wrapperId, itemJson) {
   var img = document.createElement("img")
   //img.setAttribute("class", "d-block img-fluid")
   img.setAttribute("alt", itemJson.alternativeText)
-  img.setAttribute("src", itemJson.image)
+  img.setAttribute("src", "/" + itemJson.image)
   img.setAttribute("width", 600)
   img.setAttribute("height", 400)
   item.appendChild(img)
@@ -106,4 +106,22 @@ function addCarouselToContainer(containerId, carouselId) {
   document.getElementById(containerId).appendChild(carou)
 }
 
+function addCarousel(containerId, carouselId, wrapperId, itemsList,
+  typeItem) {
+    var first = true
+    addCarouselToContainer(containerId, carouselId)
+    addIndicatorsToCarousel(carouselId, itemsList.length)
+    addWrapperToCarousel(carouselId, wrapperId)
+    for (let u of itemsList) {
+      addItemToCarousel(wrapperId, {
+        name: u.name,
+        image: u.backgroundImage,
+        alternativeText: u.description,
+        active: first,
+        type: typeItem
+      })
+      first = false
+    }
+    addCarouselControl(carouselId)
+  }
 </script>

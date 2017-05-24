@@ -21,9 +21,12 @@
   <% include tools/carousel %>
   <script>
   function buildUpUniversCarousel() {
+    var univers = <%- universList %>
+    addCarousel('univers', 'carouselUnivers', 'wrapperUnivers',
+      univers, 'univers')
+/*
     var carouselId="carouselUnivers"
     var wrapperId="wrapperUnivers"
-    var univers = <%- universList %>
     var first=true
     addCarouselToContainer('univers', carouselId)
     addIndicatorsToCarousel(carouselId, univers.univers.length)
@@ -39,6 +42,7 @@
       first=false
     }
     addCarouselControl(carouselId)
+*/
     }
 
   </script>

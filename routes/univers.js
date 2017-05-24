@@ -17,12 +17,8 @@ function universPage(req, res) {
     console.log(e);
   }
 
-  var thisunivers = {
-    name: "",
-    description: "",
-    backgroundImage: ""
-  }
-  for (let u of doc.univers) {
+  var thisunivers = { name: "", description: "", backgroundImage: "" }
+  for (let u of doc) {
     if (req.params.universName == u.name) {
       thisunivers.name = u.name
       thisunivers.description = u.description
@@ -45,9 +41,10 @@ function universPage(req, res) {
     //404
     return
   }
+
   res.render('univers.ejs', {
-    universData: JSON.stringify(doc, null),
-    thisunivers: JSON.stringify(thisunivers)
+    universData: JSON.stringify(docUnivers, null),
+    thisunivers: JSON.stringify(thisunivers, null)
   })
 }
 
