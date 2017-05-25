@@ -3,6 +3,7 @@ const http = require('http')
 const express = require ('express')
 const homePage = require('./routes/home.js')
 const universPage = require ('./routes/univers.js')
+const gridPage = require('./routes/grid.js')
 
 const constants = require ('./config/constants')
 
@@ -16,8 +17,7 @@ var server = targetApp.listen(PORT, ()=> {
 })
 
 targetApp.get('/', homePage)
-
 targetApp.get('/univers/:universName', universPage)
-
+targetApp.get('/target/:targetName', gridPage)
 
 module.exports = targetApp

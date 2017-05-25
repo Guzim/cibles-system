@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang='fr'>
+  <head>
+    <% include includes/head-global %>
+    <% include includes/head-bootstrap %>
+    <% include includes/head-google %>
+  </head>
+  <body onload="buildUpTarget()">
+    <div class='row'> <!-- Ligne de titre -->
+      <div class='col-sm-12'><h1 id='targetName' /></div>
+    </div> <!-- Fin ligne de titre -->
+
+  </body>
+  <% include tools/google %>
+  <% include tools/carousel %>
+  <script>
+  function buildUpTarget() {
+    var targetData = <%- targetData %>
+    var targetName = <%- targetName %>
+    document.getElementById('targetName').innerHTML = targetName
+  }
+  </script>
+  </html>
