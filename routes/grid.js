@@ -9,7 +9,7 @@ Display the result of the zone.
 var YAML=require('js-yaml')
 var fs=require('fs')
 
-function gridPage(req, res) {
+function targetPage(req, res) {
   /*
    check the name
    get the target yaml
@@ -24,7 +24,9 @@ function gridPage(req, res) {
   }
 
   res.render('target.ejs', {
-    targetName: req.parames.targetName,
+    targetName: req.params.targetName,
     targetData: JSON.stringify(doc, null)
   })
 }
+
+module.exports = targetPage

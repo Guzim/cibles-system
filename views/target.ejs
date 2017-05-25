@@ -8,17 +8,17 @@
   </head>
   <body onload="buildUpTarget()">
     <div class='row'> <!-- Ligne de titre -->
-      <div class='col-sm-12'><h1 id='targetName' /></div>
+      <div class='col-sm-12'><h1 id='targetName'>Test</h1></div>
     </div> <!-- Fin ligne de titre -->
 
   </body>
   <% include tools/google %>
-  <% include tools/carousel %>
   <script>
   function buildUpTarget() {
     var targetData = <%- targetData %>
-    var targetName = <%- targetName %>
-    document.getElementById('targetName').innerHTML = targetName
+    var tgtName = <%- targetName %>
+    document.getElementById('targetName').innerHTML = tgtName
+    alert(tgtName)
   }
   </script>
   </html>
