@@ -8,17 +8,57 @@
   </head>
   <body onload="buildUpTarget()">
     <div class='row'> <!-- Ligne de titre -->
-      <div class='col-sm-12'><h1 id='targetName'>Test</h1></div>
+      <div class='col-sm-12'><h1 id='targetName'><%- targetName %></h1></div>
     </div> <!-- Fin ligne de titre -->
-
+    <div class='row'> <!-- ligne de saisie des infos -->
+      <form>
+        <div class='form-group col-sm-4'><fieldset>
+            <legend>Impact</legend>
+            <label>X :</label>
+            <input type='text' class='form-control' id='impactX'/>
+            <label>Y :</label>
+            <input type='text' class='form-control' id='impactY'/>
+        </fieldset></div>
+        <div class='form-group col-sm-4'><fieldset>
+            <legend>Ajustement Maximum</legend>
+            <label>Ajustement :</label>
+            <input type='text' class='form-control' id='adjustment'/>
+        </fieldset></div>
+        <div class='form-group col-sm-4'><fieldset>
+            <legend>Portée</legend>
+            <div class='radio'>
+              <label for='cac' class='radio'>
+                <input type='radio' name='distance' value='cac' id='cac' checked>
+                Corps à Corps
+              </label>
+              <label for='courte' class='radio'>
+                <input type='radio' name='distance' value='courte' id='courte'>
+                Courte
+              </label>
+              <label for='longue' class='radio'>
+                <input type='radio' name='distance' value='longue' id='longue'>
+                Longue
+              </label>
+            </div>
+        </fieldset></div>
+      </form>
+    </div><!-- Fin de ligne de saisie de l'impact -->
+    <hr>
+    <div class='row'> <!-- Ligne d'affichage du résultat -->
+      <div class='col-sm-4'></div>
+      <div class='col-sm-4'>
+        <label>Résultat : </label>
+        <p id='zoneName'></p>
+    </div>
+    </div>
+    <hr>
   </body>
   <% include tools/google %>
   <script>
   function buildUpTarget() {
     var targetData = <%- targetData %>
     var tgtName = <%- targetName %>
-    document.getElementById('targetName').innerHTML = tgtName
-    alert(tgtName)
+    document.getElementById('zoneName').innerHTML = 'targetData.name'
   }
   </script>
   </html>
