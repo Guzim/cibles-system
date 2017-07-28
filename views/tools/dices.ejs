@@ -1,0 +1,45 @@
+<script>
+  function getAPI(apiUrl) {
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",apiUrl,true);
+    Httpreq.onload = () => {
+      //set the attribute
+      alert(Httpreq.responseText)
+    }
+    Httpreq.send(null);
+    return Httpreq.responseText;
+  }
+  function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr && xhr.withCredentials) {
+
+      // Check if the XMLHttpRequest object has a "withCredentials" property.
+      // "withCredentials" only exists on XMLHTTPRequest2 objects.
+      xhr.open(method, url, true);
+      alert("WithCredentials : " + JSON.stringify(xhr.withCredentials))
+
+    } else if (typeof XDomainRequest != "undefined") {
+
+      // Otherwise, check if XDomainRequest.
+      // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+      alert("Domain call")
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
+
+    } else {
+
+      // Otherwise, CORS is not supported by the browser.
+      xhr = null;
+      alert ("Your browser doesn't support CORS, please add the plugin to support CORS : Allow-Control-Allow-Origin")
+
+    }
+    return xhr;
+}
+
+function get2D20() {
+  var resp = getAPI("https://rolz.org/api/?2D20.json")
+  //var resp = createCORSRequest('GET', "https://rolz.org/api/?2D20.json")
+  alert(JSON.stringify(resp.responseText))
+}
+
+</script>

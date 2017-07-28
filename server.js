@@ -4,6 +4,7 @@ const express = require ('express')
 const homePage = require('./routes/home.js')
 const universPage = require ('./routes/univers.js')
 const targetPage = require('./routes/grid.js')
+const playPage=require('./routes/play.js')
 
 const constants = require ('./config/constants')
 
@@ -19,5 +20,6 @@ var server = targetApp.listen(PORT, ()=> {
 targetApp.get('/', homePage)
 targetApp.get('/univers/:universName', universPage)
 targetApp.get('/target/:targetName', targetPage)
+targetApp.get('/target/play/:targetName', playPage)
 
 module.exports = targetApp

@@ -13,14 +13,17 @@
 
   </body>
   <% include tools/google %>
-  <% include tools/dices.ejs%>
+  <% include tools/dices.ejs>
   <script>
   function buildUpTarget() {
     var targetData = <%- targetData %>
-    var tgtName = "<%- targetName %>"
+    var tgtName = targetData.name
+    // Start by running two d20 dices
     document.getElementById('targetName').innerHTML = tgtName
-    //alert(tgtName)
-    get2D20()
+    Browser.msgBox(tgtName)
+    alert(tgtName)
   }
   </script>
-  </html>
+
+
+</html>
