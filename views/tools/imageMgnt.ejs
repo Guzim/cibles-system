@@ -1,4 +1,22 @@
 <script>
+function finalImpact(coords) {
+  cleanFinalImpact()
+
+  var fIName="finalImpact"
+  var fI = document.createElement("img")
+  fI.setAttribute("id", fIName)
+  fI.setAttribute("class", fIName)
+
+  document.getElementById("targetCol").insertBefore(fI, document.getElementById("placeHolder"))
+  drawCircle(coords, fIName)
+}
+
+function cleanFinalImpact() {
+  var fI = document.getElementById("finalImpact")
+  if (fI != null && fI !== undefined) {
+    document.getElementById("targetCol").removeChild(document.getElementById("finalImpact"))
+  }
+}
 function drawCircle (coords, circleId) {
   circle = document.getElementById(circleId)
   circle.style.width = coords.width + "px"
@@ -74,7 +92,7 @@ function positionSouris(event) {
     var ajust=document.getElementById("dropdownAjustment").value
     if ( x > 0 && x <= 20 && y > 0 && y <= 20 && distImpact <= ajust) {
        changeResult(zoneNames[x][y])
-       drawCircle(topLeftWidthCircle(x, y, 0, calculateSquareDimension("target")), "finalImpact")
+       finalImpact(topLeftWidthCircle(x, y, 0, calculateSquareDimension("target")))
      }
    }
 }
