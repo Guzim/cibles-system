@@ -1,8 +1,3 @@
-/*
-URI : <base_path>/univer/<univers-name>
-Display a caroussel of grids
-Display a + to add grid (?)
-*/
 // Get the single univers
 var YAML=require('js-yaml')
 var fs=require('fs')

@@ -1,6 +1,6 @@
 
 name: "Bouvreuil"
-backgroundImage: "bouvreuil.jpg"
+backgroundImage: "https://target-rpg.herokuapp.com/bouvreuil.jpg"
 zones:
   - name: blessure légère
     cases:

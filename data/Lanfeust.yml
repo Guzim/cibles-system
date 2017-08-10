@@ -9,5 +9,5 @@ Lanfeust:
       - Vigilance: "Capacité d’observation, acuité sensorielle, mais également, capacité à rester éveillé et concentré lors d’un tour de garde."
     basesCaracteristiques: "Trois caractéristiques à 6, trois à 10 et une à 14. Vous disposez de 4 points en tout à répartir dans une ou plusieurs caractéristiques à votre guise"
     target:
-      - humain: "grid-human.png"
-      - zombie: "grid-zombie.png"
+      - humain: "https://target-rpg.herokuapp.com/grid-human.png"
+      - zombie: "https://target-rpg.herokuapp.com/grid-zombie.png"

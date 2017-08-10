@@ -17,7 +17,7 @@
   figure.appendChild(ref)
 
   var img =  document.createElement("img")
-  img.setAttribute("src", "/"+item.backgroundImage)
+  img.setAttribute("src", item.backgroundImage)
   img.setAttribute("class", "imgThumbnails")
   ref.appendChild(img)
 
@@ -34,7 +34,7 @@
       addOneCaptionToContainer(u, containerDOM, baseImgTargetUrl+u.name)
     }
     if (addPlus) {
-      var plusImg = {"name":"Ajouter une cible", "backgroundImage": "plus.ico"}
+      var plusImg = {"name":"Ajouter une cible", "backgroundImage": "https://target-rpg.herokuapp.com/plus.ico"}
       addOneCaptionToContainer(plusImg, containerDOM, baseImgTargetUrl+"create")
     }
 

@@ -10,7 +10,7 @@ basesCaracteristiques: "Trois caractéristiques à 6, trois à 10 et une à 14. 
 targets:
   - name: "Bouvreuil"
     description: "Bouvreuil posé"
-    backgroundImage: "bouvreuil.jpg"
+    backgroundImage: "https://target-rpg.herokuapp.com/bouvreuil.jpg"
   - name: "Rouge-gorge"
     description: "Rouge-gorge posé"
-    backgroundImage: "rouge-gorge.jpg"
+    backgroundImage: "https://target-rpg.herokuapp.com/rouge-gorge.jpg"
