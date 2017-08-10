@@ -44,7 +44,7 @@ function universPage(req, res) {
 
   res.render('univers.ejs', {
     universData: JSON.stringify(docUnivers, null),
-    thisunivers: JSON.stringify(thisunivers, null)
+    thisUnivers: JSON.stringify(thisunivers, null)
   })
 }
 

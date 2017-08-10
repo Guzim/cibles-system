@@ -8,7 +8,7 @@
 
     </script>
   </head>
-  <body onload="buildUpPage()">
+  <body onload="buildUpPage()" onclick="positionSouris(event)">
     <% include includes/elt-bandeau %>
     <div class = "container mainContainer" id = "mainContainer">
       <% include includes/elt-universname %>
@@ -36,21 +36,20 @@
           </select>
         </div>
       </div>
-      <% include includes/elt-targetname %>
-      <div class="row" >    <!-- Row : target            -->
-        <div class= "col-xs-12" id="targetCol">
-          <img id="target" class="targetImage"></img>
-          <div id="ajustement" class="ajustement" onclick="positionSouris(event)"></div>
-          <div id="finalImpact" class="finalImpact"></div>
-          <div id="impact" class="impact" onclick="positionSouris(event)"></div>
-        </div>
-      </div>
       <div class="row">    <!-- Row : result            -->
         <div class= "col-xs-3 short-div">
           <p class="label-result">R&eacute;sultats</p>
         </div>
         <div class= "col-xs-9 short-div">
           <p class="result-field" id="resultField">...</p>
+        </div>
+      </div>
+      <% include includes/elt-targetname %>
+      <div class="row">    <!-- Row : target            -->
+        <div class= "col-xs-12" id="targetCol">
+          <img id="target" class="targetImage"></img>
+          <div id="ajustement" class="ajustement"></div>
+          <div id="impact" class="impact"></div>
         </div>
       </div>
     </div>
@@ -62,12 +61,9 @@
     var universName = "<%- universName %>"
     var targetName = "<%- targetName %>"
     var targetData = <%- targetData %>
-    clicked = false /* we can click only once */
-    // Manage touch on mobile doesn't work
-    document.getElementById("ajustement").addEventListener('touchstart', positionMobile, false)
-    document.getElementById("impact").addEventListener('touchstart', positionSouris, false)
-
-    document.getElementById("dés").addEventListener('touchstart', throwDicesMobile, false)
+    // Manage touch on mobile
+    window.addEventListener('touchstart', positionSouris)
+    document.addEventListener('touchstart', throwDices)
 
     // Univers name
     document.getElementById("universName").innerHTML = universName
@@ -87,12 +83,26 @@
 
   function ajustment() {
     // Change the radius of the second circle
-    if (typeof impactX != "undefined") {
-      coordonnees = topLeftWidthCircle(impactX, impactY,
-        document.getElementById("dropdownAjustment").value,
-        calculateSquareDimension("target"))
-      drawCircle (coordonnees, "ajustement")
-    }
+    coordonnees = topLeftWidthCircle(impactX, impactY,
+      document.getElementById("dropdownAjustment").value,
+      calculateSquareDimension("target"))
+    drawCircle (coordonnees, "ajustement")
+  }
+
+  function throwDices() {
+    getD20().then((content) => {
+      impactX = JSON.parse(content).result
+      getD20().then ((content) => {
+        impactY = JSON.parse(content).result
+        coordonnees = topLeftWidthCircle(impactX, impactY,
+          document.getElementById("dropdownAjustment").value,
+          calculateSquareDimension("target"))
+        drawCircle (coordonnees, "ajustement")
+        coordonnees = topLeftWidthCircle(impactX, impactY, 0, calculateSquareDimension("target"))
+        drawCircle (coordonnees, "impact")
+
+      })
+    })
   }
   </script>
   </html>

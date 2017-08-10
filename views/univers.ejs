@@ -4,61 +4,26 @@
   <head>
     <% include includes/head-global %>
     <% include includes/head-bootstrap %>
-    <% include includes/head-google %>
   </head>
-  <body onload="buildUpUnivers()">
-    <div class='row'> <!-- Ligne de titre -->
-      <div class='col-sm-12'><h1 id='universName' /></div>
-    </div> <!-- Fin ligne de titre -->
-    <div class='row'> <!-- Ligne de description -->
-      <div class='col-sm-3'>
-        <img id ='unviversBackgroundImage' width='170' height='170' />
+  <body onload="buildUpPage()">
+    <% include includes/elt-bandeau %>
+    <div class = "container mainContainer" id = "mainContainer">
+      <% include includes/elt-universname %>
+      <div class="row" id="galleryTargets">  <!-- Row : thumbnail          -->
       </div>
-      <div class='col-sm-9'><p id='universDescription' /></div>
-    </div> <!-- Fin ligne de description -->
-    <div class = 'row' id="basiques"> <!-- Ligne de basiques -->
-    </div> <!-- Fin ligne de basiques -->
-    <div class = 'row' id="repartitions"> <!-- Ligne de règle de répartition -->
-    </div> <!-- Fin ligne de règle de répartition -->
-    <div class = 'row'> <!-- En tête pour les cibles -->
-      <div class='col-sm-12'><h1>Cibles disponibles</h1></div>
-    </div> <!-- Fin d'en tête pour les cibles -->
-    <div class = 'row'> <!-- Thumbnail de cibles -->
-      <div class='col-sm-12 container-fluid' id='targets'></div>
-      </div>
-    </div> <!-- fin de Thumbnail de cibles -->
   </body>
-  <% include tools/google %>
-  <% include tools/carousel %>
+
+  <% include tools/thumbnail %>
   <script>
-  function addBasique(obj, element) {
-    var bas = document.createElement("li")
-    element.appendChild(bas)
-    var key, texte
-    for (key in obj) {
-      texte = key + ": " + obj[key]
-      bas.innerHTML = texte
-    }
-  }
-
-  function buildUpUnivers() {
+  function buildUpPage() {
+    var univers = <%- thisUnivers %>
     var universData = <%- universData %>
-    var thisunivers = <%- thisunivers %>
-    document.getElementById('universName').innerHTML = thisunivers.name
-    document.getElementById('universDescription').innerHTML = thisunivers.description
-    document.getElementById('unviversBackgroundImage').setAttribute("src", "/" + thisunivers.backgroundImage)
-    var listeBasique=document.createElement("ol")
-    document.getElementById('basiques').appendChild(listeBasique)
-    for (let basique of universData.basiques) {
-      console.log("basique : " + basique)
-      addBasique(basique, listeBasique)
-    }
-    document.getElementById('repartitions').innerHTML = universData.basesCaracteristiques
-    // Caroussel
-    //build up the target lists.
-
-    addCarousel("targets", "carouselTargets", "wrapperTargets",
-      universData.targets, "target")
+    // Select the correct button
+    document.getElementById("label-univers").setAttribute("class", "label-unselected")
+    document.getElementById("label-targets").setAttribute("class", "label-selected")
+    document.getElementById("label-fire").setAttribute("class", "label-unselected")
+    document.getElementById("universName").innerHTML = univers.name
+    createThumbnail(universData.targets, "galleryTargets", "/" + univers.name + "/", true)
   }
   </script>
   </html>

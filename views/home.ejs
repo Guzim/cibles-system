@@ -4,28 +4,25 @@
   <head>
     <% include includes/head-global %>
     <% include includes/head-bootstrap %>
-    <% include includes/head-google %>
   </head>
-  <body onload="buildUpUniversCarousel()">
-    <div class='row'> <!-- Ligne de connexion -->
-      <div class='col-sm-12'>
-        <div class='g-signin2' data-onsuccess="onSignIn"></div>
-        <div><a href="#" onclick="signOut();">Sign out</a></div>
+  <body onload="buildUpPage()">
+    <% include includes/elt-bandeau %>    <!-- Bandeau de présentation  -->
+    <div class = "container mainContainer" id = "mainContainer">
+      <div class="row" id="galleryUnivers">    <!-- Row : thumbnail          -->
       </div>
-    </div>  <!-- Fin de ligne de connexion -->
-    <div class='row'> <!-- Ligne caroussel d'univers -->
-      <div class='col-sm-12 container-fluid' id='univers'></div>
-    </div> <!-- Fin de ligne caroussel d'univers -->
+    </div>
   </body>
-  <% include tools/google %>
-  <% include tools/carousel %>
+  <% include tools/thumbnail %>
   <script>
-  function buildUpUniversCarousel() {
+  function buildUpPage() {
     var univers = <%- universList %>
-    addCarousel('univers', 'carouselUnivers', 'wrapperUnivers',
-      univers, 'univers')
-
-    }
+    // Select the correct button
+    document.getElementById("label-univers").setAttribute("class", "label-selected")
+    document.getElementById("label-targets").setAttribute("class", "label-unselected")
+    document.getElementById("label-fire").setAttribute("class", "label-unselected")
+    // Create the thumbnails
+    createThumbnail(univers, "galleryUnivers", "/univers/", false)
+  }
 
   </script>
-  </html>
+</html>

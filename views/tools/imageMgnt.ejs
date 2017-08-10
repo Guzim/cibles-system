@@ -1,0 +1,87 @@
+<script>
+function drawCircle (coords, circleId) {
+  circle = document.getElementById(circleId)
+  circle.style.width = coords.width + "px"
+  circle.style.height = coords.width + "px"
+  circle.style.top = coords.top + "px"
+  circle.style.left = coords.left + "px"
+}
+
+function topLeftWidthCircle(x, y, radius, squareDim) {
+  var coordonnees = {}
+  coordonnees.width = (2*radius+1)*squareDim
+  coordonnees.top = (y-1-radius)*squareDim
+  coordonnees.left = (x-1-radius)*squareDim
+  return coordonnees
+}
+
+function changeResult(name) {
+  document.getElementById("resultField").innerHTML = name
+  clicked=true  /* we do not authorize another clik */
+}
+
+function calculateSquareCoordinate(targetX, targetY, squareDim) {
+  // Return a coords value for the mapping
+  // Attention : x start at one, not zero => -1 to coordinates
+  var x1 = ( targetX - 1 ) * squareDim
+  var y1 = ( targetY - 1 ) * squareDim
+  var x2 =  targetX * squareDim - 1
+  var y2 =  targetY * squareDim - 1
+
+  return "" + x1 + ", " + y1 + ", " + x2 + ", " + y2
+}
+
+function calculateSquareDimension(imgId) {
+  //Calculate the dimension of a square.
+  var img = document.getElementById(imgId)
+  var L = img.offsetWidth || 0
+  return L/20
+}
+
+function zoneMapping (targetData) {
+  var zoneNames = new Array()
+  for (x = 1; x <= 20; x ++) {
+    zoneNames[x] = new Array()
+    for (y = 1; y <= 20; y ++) {
+      zoneNames[x][y]="Rat&eacute"
+    }
+  }
+  for (let z of targetData.zones) {
+    for (let s of z.cases) {
+      zoneNames[s.x][s.y]=z.name
+    }
+  }
+  return zoneNames
+}
+
+function getOffset( el ) {
+    var _x = 0;
+    var _y = 0;
+    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        _x += el.offsetLeft - el.scrollLeft;
+        _y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+    }
+    return { top: _y, left: _x };
+}
+
+function positionSouris(event) {
+  var img = getOffset(document.getElementById("target"))
+  if (!clicked && squareDim > 0) {
+    var x = Math.trunc( ( (event.clientX-img.left) / squareDim ) ) + 1
+    var y = Math.trunc( ( (event.clientY-img.top) / squareDim ) ) + 1
+    var distImpact = Math.sqrt((x-impactX)*(x-impactX) + (y-impactY)*(y-impactY))
+    var ajust=document.getElementById("dropdownAjustment").value
+    if ( x > 0 && x <= 20 && y > 0 && y <= 20 && distImpact <= ajust) {
+       changeResult(zoneNames[x][y])
+       drawCircle(topLeftWidthCircle(x, y, 0, calculateSquareDimension("target")), "finalImpact")
+     }
+   }
+}
+
+function positionMobile(event) {
+  event.preventDefault()
+  positionSouris(event)
+}
+
+</script>

@@ -24,6 +24,7 @@ function targetPage(req, res) {
   }
 
   res.render('target.ejs', {
+    universName: req.params.universName,
     targetName: req.params.targetName,
     targetData: JSON.stringify(doc, null)
   })

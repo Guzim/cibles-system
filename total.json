@@ -1,0 +1,157 @@
+{
+  "name": "Lanfeust de Troy",
+  "descritpion": "Venez prendre part à de formidables aventures dans le monde magique et merveilleux de Lanfeust de Troy, la célèbre BD créée par Christophe Arleston et mise en image par Didier Tarquin",
+  "image": "http://www.arludik.com/fnac/images%20new/lanfeust.jpg",
+  "targets": [
+    { "name": "Lanfeust",
+      "image": "http://www.askell.com/Jeux-video/Lanfeust/Lanfeust.gif",
+      "defaultZone": "Raté",
+      "zones": [
+        { "name": "Blessure mortelle",
+          "squares": [
+            {"abscissa": 12,"ordinate": 2},
+            {"abscissa": 13,"ordinate": 2},
+            {"abscissa": 12,"ordinate": 3},
+            {"abscissa": 13,"ordinate": 3},
+            {"abscissa": 13,"ordinate": 6}
+          ]
+        },
+        { "name": "Blessure grave",
+          "squares": [
+            {"abscissa": 12, "ordinate": 4},
+            {"abscissa": 13, "ordinate": 4},
+            {"abscissa": 11,"ordinate": 5},
+            {"abscissa": 12,"ordinate": 5},
+            {"abscissa": 13,"ordinate": 5},
+            {"abscissa": 14,"ordinate": 5},
+            {"abscissa": 11,"ordinate": 6},
+            {"abscissa": 12,"ordinate": 6},
+            {"abscissa": 11,"ordinate": 7},
+            {"abscissa": 12,"ordinate": 7},
+            {"abscissa": 13,"ordinate": 7},
+            {"abscissa": 12,"ordinate": 8},
+            {"abscissa": 13,"ordinate": 8},
+            {"abscissa": 12,"ordinate": 9},
+            {"abscissa": 13,"ordinate": 9},
+            {"abscissa": 12,"ordinate": 10}
+          ]
+        },
+        { "name": "Blessure légère",
+          "squares": [
+            {"abscissa": 14,"ordinate": 6},
+            {"abscissa": 10,"ordinate": 7},
+            {"abscissa": 14,"ordinate": 7},
+            {"abscissa": 15,"ordinate": 7},
+            {"abscissa": 10,"ordinate": 8},
+            {"abscissa": 11,"ordinate": 8},
+            {"abscissa": 14,"ordinate": 8},
+            {"abscissa": 15,"ordinate": 8},
+            {"abscissa": 9,"ordinate": 10},
+            {"abscissa": 11,"ordinate": 10},
+            {"abscissa": 13,"ordinate": 10},
+            {"abscissa": 14,"ordinate": 10},
+            {"abscissa": 15,"ordinate": 10},
+            {"abscissa": 11,"ordinate": 11},
+            {"abscissa": 12,"ordinate": 11},
+            {"abscissa": 13,"ordinate": 11},
+            {"abscissa": 14,"ordinate": 11},
+            {"abscissa": 11,"ordinate": 12},
+            {"abscissa": 12,"ordinate": 12},
+            {"abscissa": 13,"ordinate": 12},
+            {"abscissa": 14,"ordinate": 12},
+            {"abscissa": 11,"ordinate": 13},
+            {"abscissa": 13,"ordinate": 13},
+            {"abscissa": 14,"ordinate": 13},
+            {"abscissa": 11,"ordinate": 14},
+            {"abscissa": 14,"ordinate": 14},
+            {"abscissa": 11,"ordinate": 15},
+            {"abscissa": 14,"ordinate": 15},
+            {"abscissa": 15,"ordinate": 15},
+            {"abscissa": 11,"ordinate": 16},
+            {"abscissa": 14,"ordinate": 16},
+            {"abscissa": 15,"ordinate": 16},
+            {"abscissa": 11,"ordinate": 17},
+            {"abscissa": 15,"ordinate": 17},
+            {"abscissa": 10,"ordinate": 18},
+            {"abscissa": 15,"ordinate": 18},
+            {"abscissa": 10,"ordinate": 19},
+            {"abscissa": 15,"ordinate": 19},
+            {"abscissa": 9,"ordinate": 20},
+            {"abscissa": 15,"ordinate": 20}
+          ]
+        }
+      ]
+    },
+    { "name":"Barikoul",
+      "image": "http://www.jdroll.org/files/345/cd9332f7778ec7b48580221a4d5e91ae60666cfa.png",
+      "defaultZone": "Raté",
+      "zones": [
+        { "name": "Blessure mortelle",
+          "squares": [
+            {"abscissa": 5,"ordinate": 3},
+            {"abscissa": 5,"ordinate": 4},
+            {"abscissa": 5,"ordinate": 5},
+            {"abscissa": 5,"ordinate": 6},
+            {"abscissa": 10,"ordinate": 9},
+            {"abscissa": 10,"ordinate": 10},
+            {"abscissa": 10,"ordinate": 11}
+          ]
+        },
+        { "name": "Blessure grave",
+          "squares": [
+            {"abscissa": 7,"ordinate": 2}, {"abscissa": 6,"ordinate": 3},
+            {"abscissa": 7,"ordinate": 3}, {"abscissa": 5,"ordinate": 7},
+            {"abscissa": 6,"ordinate": 7}, {"abscissa": 5,"ordinate": 8},
+            {"abscissa": 6,"ordinate": 8}, {"abscissa": 10,"ordinate": 8},
+            {"abscissa": 11,"ordinate": 8}, {"abscissa": 12 ,"ordinate": 8},
+            {"abscissa": 13,"ordinate": 8}, {"abscissa": 11,"ordinate": 9},
+            {"abscissa": 12,"ordinate": 9}, {"abscissa": 13,"ordinate": 9},
+            {"abscissa": 12,"ordinate": 10}, {"abscissa": 10 ,"ordinate": 11},
+            {"abscissa": 11,"ordinate": 11}, {"abscissa": 12,"ordinate": 11},
+            {"abscissa": 15,"ordinate": 11}, {"abscissa": 10,"ordinate": 12},
+            {"abscissa": 11,"ordinate": 12}, {"abscissa": 15,"ordinate": 12},
+            {"abscissa": 15,"ordinate": 13}
+          ]
+        },
+        { "name": "Blessure légère",
+          "squares": [
+            {"abscissa": 8,"ordinate": 2}, {"abscissa": 8,"ordinate": 3},
+            {"abscissa": 7,"ordinate": 4}, {"abscissa": 8,"ordinate": 4},
+            {"abscissa": 8,"ordinate": 5}, {"abscissa": 9,"ordinate": 4},
+            {"abscissa": 7,"ordinate": 8}, {"abscissa": 8,"ordinate": 8},
+            {"abscissa": 9,"ordinate": 8}, {"abscissa": 14,"ordinate": 8},
+            {"abscissa": 5,"ordinate": 9}, {"abscissa": 6,"ordinate": 9},
+            {"abscissa": 7,"ordinate": 9}, {"abscissa": 8,"ordinate": 9},
+            {"abscissa": 9,"ordinate": 9}, {"abscissa": 14,"ordinate": 9},
+            {"abscissa": 6,"ordinate": 10}, {"abscissa": 7,"ordinate": 10},
+            {"abscissa": 8,"ordinate": 10}, {"abscissa": 9,"ordinate": 10},
+            {"abscissa": 13,"ordinate": 10}, {"abscissa": 14,"ordinate": 10},
+            {"abscissa": 15,"ordinate": 10}, {"abscissa": 17,"ordinate": 10},
+            {"abscissa": 18,"ordinate": 10}, {"abscissa": 6,"ordinate": 11},
+            {"abscissa": 7,"ordinate": 11}, {"abscissa": 8,"ordinate": 11},
+            {"abscissa": 9,"ordinate": 11}, {"abscissa": 13,"ordinate": 11},
+            {"abscissa": 14,"ordinate": 11}, {"abscissa": 16,"ordinate": 11},
+            {"abscissa": 6,"ordinate": 12}, {"abscissa": 12,"ordinate": 12},
+            {"abscissa": 7,"ordinate": 12}, {"abscissa": 8,"ordinate": 12},
+            {"abscissa": 9,"ordinate": 12}, {"abscissa": 13,"ordinate": 12},
+            {"abscissa": 14,"ordinate": 12}, {"abscissa": 6,"ordinate": 13},
+            {"abscissa": 7,"ordinate": 13}, {"abscissa": 8,"ordinate": 13},
+            {"abscissa": 9,"ordinate": 13}, {"abscissa": 10,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }, {"abscissa": ,"ordinate": },
+            {"abscissa": ,"ordinate": }
+          ]
+        },
+      ]
+    }
+  ]
+},
+{
+  "name": "The Walking Dead"
+  "description": "The Walking Dead JDROLL est une adaptation en jeu de rôle sur table de la célèbre BD adaptée depuis en série télé. Qui n'a jamais voulu tenter l'expérience rolistisque d'un monde infecté par une maladie sortie de l'esprit d'un émule de Georges A. Romero et tenter d'y survivre",
+  "image": "http://www.jdroll.org/files/d54eea29d567d46d692f4aba0ff9f398043d6cff.jpeg",
+}

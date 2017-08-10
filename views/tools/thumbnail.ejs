@@ -1,0 +1,42 @@
+<!-- Tool to create a thumbnail from a JSON variable containing
+    * A name attribute
+    * A backgroundImage attribute
+-->
+<script>
+  function addOneCaptionToContainer (item, containerDOM, ImgTargetUrl) {
+    var thumbnail = document.createElement("div")
+    thumbnail.setAttribute("class", "col-xs-4")
+
+  var figure = document.createElement("figure")
+  figure.setAttribute("class", "thumbnail")
+  thumbnail.appendChild(figure)
+
+  var ref = document.createElement("a")
+  ref.setAttribute("href", ImgTargetUrl)
+  ref.setAttribute("class", "thumbnail")
+  figure.appendChild(ref)
+
+  var img =  document.createElement("img")
+  img.setAttribute("src", "/"+item.backgroundImage)
+  img.setAttribute("class", "imgThumbnails")
+  ref.appendChild(img)
+
+  var caption = document.createElement("figcaption")
+  caption.setAttribute("class", "caption")
+  caption.innerHTML = item.name
+  ref.appendChild(caption)
+
+    document.getElementById(containerDOM).appendChild(thumbnail)
+  }
+  function createThumbnail(itemsList, containerDOM, baseImgTargetUrl, addPlus) {
+    // addPlus is a boolean to know if we want to add the + image
+    for (let u of itemsList) {
+      addOneCaptionToContainer(u, containerDOM, baseImgTargetUrl+u.name)
+    }
+    if (addPlus) {
+      var plusImg = {"name":"Ajouter une cible", "backgroundImage": "plus.ico"}
+      addOneCaptionToContainer(plusImg, containerDOM, baseImgTargetUrl+"create")
+    }
+
+  }
+</script>

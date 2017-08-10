@@ -1,18 +1,123 @@
-.targetImg {
-  /* Border */
+body  {
+  margin: 0;
+  background-color: #A6A4AA !important;
+}
+
+.bandeauContainer {
+  background-color: #2C3756;
+  padding-top: 10px;
+}
+
+.mainContainer {
+  background-color: #A6A4AA;
+  margin: 15px;
+}
+
+.imgThumbnails {
+  margin: 0px;
   border-style: solid;
-  border-color: Peru;
+  border-width: medium;
+  border-color: #2C3756;
   border-radius: 10px;
-  border-width: thin;
 }
 
-div.c-wrapper{
-    width: 80%; /* for example */
-    margin: auto;
+.label-selected, .label-unselected, .label-result, .result-field, .label-univers, .label-target {
+  border: solid medium #2C3756;
+  border-radius: 10px;
+  background-color: #E6F0BB;
+  color: #405E01;
+  font-size: 0.75em;
+  padding: 5px;
+  text-align: center;
 }
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img{
-width: 600px; /* use this, or not */
-margin: auto;
+.label-selected {
+  background-color: #8EB015;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.label-univers {
+  margin-top: 2px;
+  font-size: 0.875em;
+}
+
+.label-target, .label-result, .result-field {
+  margin-top: 2px;
+  font-size: 0.875em;
+  margin-bottom: 0;
+  background-color: #2C3756;
+  text-align: left;
+  color : #FFFFFF;
+  border-radius: 8px;
+}
+
+.label-target  {
+  border-radius: 8px 8px 0 0;
+}
+
+.label-result, .result-field {
+  margin-bottom: 2px;
+}
+
+.result-field {
+  background-color: #FFFFFF;
+  color: #2C3756;
+  border-color: #FFFFFF;
+}
+
+#logo {
+  float: right;
+  max-width: 200px
+}
+
+.thumbnail {
+    padding: 0px !important;
+    border: none !important;
+    margin-top: 2px !important;
+    background-color: transparent !important;
+}
+
+.caption {
+  text-align: center;
+}
+.targetImage {
+    margin: 0;
+    width: calc(100% - 30px);
+    height: auto;
+    border: solid medium #2C3756;
+    border-radius: 0 0 8px 8px;
+    background-color: #A6A4AA;
+    position: relative;
+}
+
+.selectpicker {
+  float: right  ;
+}
+
+#targetCol {
+  overflow: hidden;
+  line-height: 0;
+  padding: 0;
+  width: calc(100%);
+  margin-left: 15px;
+}
+
+.impact, .ajustement, .finalImpact {
+  position: absolute;
+  background-color: #dc022e;
+  border-radius: 100%;
+  opacity: 0.75;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  border: solid medium #2C3756;
+}
+
+.ajustement {
+  opacity: 0.5;
+}
+
+.finalImpact {
+  background-color: #8EB015;
 }
