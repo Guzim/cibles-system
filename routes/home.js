@@ -5,9 +5,9 @@ var fs=require('fs')
 // Construct list of univers
 try {
   var doc = YAML.safeLoad(fs.readFileSync('./data/univers.yml', 'utf8'),
-    {json: true});
+    {json: true})
 } catch (e) {
-  console.log(e);
+  console.log(e)
 }
 // Call the home page
 function homePage(req, res) {

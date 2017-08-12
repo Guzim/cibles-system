@@ -18,9 +18,9 @@ function targetPage(req, res) {
   try {
     doc = YAML.safeLoad(fs.readFileSync('./data/targets/' +
       req.params.targetName + '.yml',
-      'utf8'), {json: true});
+      'utf8'), {json: true})
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 
   res.render('target.ejs', {

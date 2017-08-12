@@ -7,9 +7,9 @@ function universPage(req, res) {
   var doc
   try {
     doc = YAML.safeLoad(fs.readFileSync('./data/univers.yml',
-      'utf8'), {json: true});
+      'utf8'), {json: true})
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 
   var thisunivers = { name: "", description: "", backgroundImage: "" }
@@ -18,7 +18,7 @@ function universPage(req, res) {
       thisunivers.name = u.name
       thisunivers.description = u.description
       thisunivers.backgroundImage = u.backgroundImage
-      break;
+      break
     }
   }
   if (!thisunivers.name) {
@@ -30,9 +30,9 @@ function universPage(req, res) {
   var docUnivers
   try {
     docUnivers = YAML.safeLoad(fs.readFileSync('./data/' + thisunivers.name + '.yml',
-      'utf8'), {json: true});
+      'utf8'), {json: true})
   } catch (e) {
-    console.log(e);
+    console.log(e)
     //404
     return
   }

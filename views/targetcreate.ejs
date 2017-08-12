@@ -8,101 +8,34 @@
 
     </script>
   </head>
-  <body onload="buildUpPage()" onclick="positionSouris(event)">
+  <body onload="buildUpPage()">
     <% include includes/elt-bandeau %>
     <div class = "container mainContainer" id = "mainContainer">
       <% include includes/elt-universname %>
-      <div class="row">    <!-- Row : Dices and adjustment -->
-        <div class="col-xs-9">       <!-- Dice image -->
-          <img class="diceImage" id="dés" src="/dices.png"
-            style="max-width: 50px" onclick="javascript:throwDices()"/>
-        </div>
-        <div class="col-xs-3 short-div">       <!-- Dropdown ajustement -->
-          <select class="selectpicker" id="dropdownAjustment" onchange="javascript:ajustment()">
-            <option value="0">Ajustement</option>
-            <option value="0">0</option><option value="1">1</option>
-            <option value="2">2</option><option value="3">3</option>
-            <option value="4">4</option><option value="5">5</option>
-            <option value="6">6</option><option value="7">7</option>
-            <option value="8">8</option><option value="9">9</option>
-            <option value="10">10</option><option value="11">11</option>
-            <option value="12">12</option><option value="13">13</option>
-            <option value="14">14</option><option value="15">15</option>
-            <option value="16">16</option><option value="17">17</option>
-            <option value="18">18</option><option value="19">19</option>
-            <option value="20">20</option><option value="21">21</option>
-            <option value="22">22</option><option value="23">23</option>
-            <option value="24">24</option><option value="25">25</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">    <!-- Row : result            -->
-        <div class= "col-xs-3 short-div">
-          <p class="label-result">R&eacute;sultats</p>
-        </div>
-        <div class= "col-xs-9 short-div">
-          <p class="result-field" id="resultField">...</p>
-        </div>
-      </div>
-      <% include includes/elt-targetname %>
+      <% include includes/elt-urlimage %>
       <div class="row">    <!-- Row : target            -->
-        <div class= "col-xs-12" id="targetCol">
-          <img id="target" class="targetImage"></img>
-          <div id="ajustement" class="ajustement"></div>
-          <div id="impact" class="impact"></div>
-        </div>
+        <div class= "col-xs-12" id="targetGrid"></div>
       </div>
+
     </div>
   </body>
-  <% include tools/imageMgnt %>
-  <% include tools/dices %>
+  <% include includes/elt-grid %>
   <script>
   function buildUpPage() {
     var universName = "<%- universName %>"
-    var targetName = "<%- targetName %>"
-    var targetData = <%- targetData %>
-    // Manage touch on mobile
-    window.addEventListener('touchstart', positionSouris)
-    document.addEventListener('touchstart', throwDices)
-
+    zoneColors = "rgba(44, 55, 86, 0.5)"
     // Univers name
     document.getElementById("universName").innerHTML = universName
-    // Target name
-    document.getElementById("targetName").innerHTML = targetName
+
     // Select the correct button
     document.getElementById("label-univers").setAttribute("class", "label-unselected")
     document.getElementById("label-targets").setAttribute("class", "label-unselected")
     document.getElementById("label-fire").setAttribute("class", "label-selected")
-    // Image
-    var img = document.getElementById("target")
-    img.setAttribute("src", "/" + targetData.backgroundImage)
-    zoneNames = zoneMapping(targetData)
-    squareDim = calculateSquareDimension("target")
+    document.getElementById("label-fire").innerHTML = "Créer une cible"
 
-  }
+    // grid
+    tableCreate()
 
-  function ajustment() {
-    // Change the radius of the second circle
-    coordonnees = topLeftWidthCircle(impactX, impactY,
-      document.getElementById("dropdownAjustment").value,
-      calculateSquareDimension("target"))
-    drawCircle (coordonnees, "ajustement")
-  }
-
-  function throwDices() {
-    getD20().then((content) => {
-      impactX = JSON.parse(content).result
-      getD20().then ((content) => {
-        impactY = JSON.parse(content).result
-        coordonnees = topLeftWidthCircle(impactX, impactY,
-          document.getElementById("dropdownAjustment").value,
-          calculateSquareDimension("target"))
-        drawCircle (coordonnees, "ajustement")
-        coordonnees = topLeftWidthCircle(impactX, impactY, 0, calculateSquareDimension("target"))
-        drawCircle (coordonnees, "impact")
-
-      })
-    })
   }
   </script>
   </html>

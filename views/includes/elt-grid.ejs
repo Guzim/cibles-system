@@ -1,0 +1,78 @@
+<script>
+  function tableCreate() {
+    //body reference
+    var body = document.getElementById("targetGrid")
+    const dimension = 20
+
+    // create elements <table> and a <tbody>
+    var tbl     = document.createElement("table")
+    var tblBody = document.createElement("tbody")
+
+    // cells creation
+    for (var j = 1; j <= dimension; j++) {
+        // table row creation
+        var row = document.createElement("tr")
+
+        for (var i = 1; i <= dimension; i++) {
+            // create element <td> and text node
+            //Make text node the contents of <td> element
+            // put <td> at end of the table row
+          var cell = document.createElement("td")
+          var cellText = document.createElement("div")
+          cellText.setAttribute("class", "forsquare")
+
+          cell.appendChild(cellText)
+          row.appendChild(cell)
+        }
+
+        //row added to end of table body
+        tblBody.appendChild(row)
+    }
+
+    // append the <tbody> inside the <table>
+    tbl.appendChild(tblBody)
+    // put <table> in the <body>
+    body.appendChild(tbl)
+    // tbl border attribute to
+    tbl.setAttribute("border", "1")
+    tbl.setAttribute("id", "grid")
+    tbl.setAttribute("class", "table table-bordered")
+    for (var i = 0; i < tbl.rows.length; i++) {
+        for (var j = 0; j < tbl.rows[i].cells.length; j++)
+        tbl.rows[i].cells[j].onclick = function () {
+            changeBckg(this)
+        };
+    }
+  }
+
+  function ValidURL(str) {
+    var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+      '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+      '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+      '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+      '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+      '(\#[-a-z\d_]*)?$','i') // fragment locater
+    if(!pattern.test(str)) {
+      alert("Please enter a valid URL.")
+      return false
+    } else {
+      return true
+    }
+  }
+
+
+  function loadImage() {
+    var imageUrl=document.getElementById("imageUrl").value
+    document.getElementById("grid").style.backgroundImage = "url('" + imageUrl + "')"
+  }
+
+  function changeBckg(tableCell) {
+    if (tableCell.style.backgroundColor != null &&
+        tableCell.style.backgroundColor !== undefined &&
+        tableCell.style.backgroundColor !="") {
+      tableCell.style.backgroundColor = null
+    } else {
+      tableCell.style.backgroundColor = zoneColors
+    }
+  }
+</script>
