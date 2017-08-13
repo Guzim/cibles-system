@@ -4,22 +4,27 @@
   <head>
     <% include includes/head-global %>
     <% include includes/head-bootstrap %>
-    <script>
-
-    </script>
   </head>
   <body onload="buildUpPage()">
     <% include includes/elt-bandeau %>
     <div class = "container mainContainer" id = "mainContainer">
       <% include includes/elt-universname %>
+      <% include includes/elt-targetname %>
       <% include includes/elt-urlimage %>
-      <div class="row">    <!-- Row : target            -->
-        <div class= "col-xs-12" id="targetGrid"></div>
+      <!-- Row : target            -->
+      <div class="row"><div class= "col-xs-12" id="targetGrid"></div></div>
+      <!-- Row : zones + save -->
+      <div class="row">
+        <% include includes/elt-zones.ejs %>
+        <% include includes/elt-valid.ejs %>
       </div>
+    </div>
 
     </div>
   </body>
   <% include includes/elt-grid %>
+  <% include tools/savingOnServer %>
+  <script src="/socket.io/socket.io.js"></script>
   <script>
   function buildUpPage() {
     var universName = "<%- universName %>"
@@ -36,6 +41,8 @@
     // grid
     tableCreate()
 
+    // Socket management
+    client = io.connect('http://192.168.0.27:1992')
   }
   </script>
   </html>

@@ -1,0 +1,32 @@
+<script>
+  // Build up the JSON objects to send to the server
+  function buildUpTargetJSON () {
+    // JSON Structure :
+    /*
+    universName
+    name
+    backgroundImage
+    zones
+      name
+      cases [
+        x : y,
+        ...
+      ]
+    */
+    var jsonTarget = {
+      "univers": document.getElementById("universName").innerHTML,
+      "name": document.getElementById("targetName").value,
+      "backgroundImage": document.getElementById("imageUrl").value
+    }
+    // Pour chaque zone, ajouter un élément au tableau zones
+
+    // On retourne l'objet JSON ainsi construit
+    return jsonTarget
+  }
+
+  function saveOnServer() {
+    var data = buildUpTargetJSON()
+    client.emit ("send target", data)
+  }
+
+</script>

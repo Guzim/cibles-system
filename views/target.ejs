@@ -69,7 +69,8 @@
     // Univers name
     document.getElementById("universName").innerHTML = universName
     // Target name
-    document.getElementById("targetName").innerHTML = targetName
+    document.getElementById("targetName").value = targetName
+    document.getElementById("targetName").setAttribute("disabled", "disabled")
     // Select the correct button
     document.getElementById("label-univers").setAttribute("class", "label-unselected")
     document.getElementById("label-targets").setAttribute("class", "label-unselected")

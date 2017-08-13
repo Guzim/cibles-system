@@ -162,3 +162,8 @@ td:after {
   margin-right: -15px;
   width: 50%;
 }
+
+#valid {
+  height: 42px;
+  float: right;
+}
