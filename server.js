@@ -10,6 +10,11 @@ var targetApp = express()
 var server = http.Server(targetApp)
 var io = require("socket.io")(server)
 
+targetApp.locals = {
+  brush:{
+    backgroundOpacity: 0.5
+  }
+}
 targetApp.use(express.static('resources'))
 server.listen(PORT, ()=> {
   console.log('Server is listening')

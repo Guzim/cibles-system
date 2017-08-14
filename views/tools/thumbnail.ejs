@@ -7,27 +7,28 @@
     var thumbnail = document.createElement("div")
     thumbnail.setAttribute("class", "col-xs-4")
 
-  var figure = document.createElement("figure")
-  figure.setAttribute("class", "thumbnail")
-  thumbnail.appendChild(figure)
+    var figure = document.createElement("figure")
+    figure.setAttribute("class", "thumbnail")
+    thumbnail.appendChild(figure)
 
-  var ref = document.createElement("a")
-  ref.setAttribute("href", ImgTargetUrl)
-  ref.setAttribute("class", "thumbnail")
-  figure.appendChild(ref)
+    var ref = document.createElement("a")
+    ref.setAttribute("href", ImgTargetUrl)
+    ref.setAttribute("class", "thumbnail")
+    figure.appendChild(ref)
 
-  var img =  document.createElement("img")
-  img.setAttribute("src", item.backgroundImage)
-  img.setAttribute("class", "imgThumbnails")
-  ref.appendChild(img)
+    var img =  document.createElement("img")
+    img.setAttribute("src", item.backgroundImage)
+    img.setAttribute("class", "imgThumbnails")
+    ref.appendChild(img)
 
-  var caption = document.createElement("figcaption")
-  caption.setAttribute("class", "caption")
-  caption.innerHTML = item.name
-  ref.appendChild(caption)
+    var caption = document.createElement("figcaption")
+    caption.setAttribute("class", "caption")
+    caption.innerHTML = item.name
+    ref.appendChild(caption)
 
     document.getElementById(containerDOM).appendChild(thumbnail)
   }
+
   function createThumbnail(itemsList, containerDOM, baseImgTargetUrl, addPlus) {
     // addPlus is a boolean to know if we want to add the + image
     for (let u of itemsList) {

@@ -1,0 +1,59 @@
+<script>
+  function defineZone(img) {
+    zoneColor = window.getComputedStyle(img ,null).getPropertyValue('background-color')
+    zoneName = document.getElementById(img.getAttribute('id')+"_name").value
+  }
+
+
+  function zonesCreate() {
+    var zonesColors = ["#f1e8e3", "#edb18f", "#c6b977","#cadfcf",
+                      "#faced3","#c6b9e2","#fea5d3", "#ff68a9",
+                      "#bd345c","#4d681d", "#edce00", "#ece2b4"]
+    var nb_col=0
+    var row = null
+    for (let z of zonesColors) {
+      if (nb_col % 11 == 0) {
+        row = document.createElement("div")
+        row.setAttribute("class", "row")
+        document.getElementById("mainContainer").appendChild(row)
+      }
+      nb_col++
+
+      var div = document.createElement("div")
+      div.setAttribute("class", "short-div col-xs-1")
+
+      var image = document.createElement("img")
+      image.src = "/pinceau.png"
+      image.setAttribute("class", "brush")
+      image.setAttribute("id", "pinceau_" + z)
+      image.setAttribute("onclick", "javascript:defineZone(this)")
+      image.style.backgroundColor = hexToRgbA(z, 0.75)
+      div.appendChild(image)
+
+      var input = document.createElement("input")
+      input.setAttribute("type", "text")
+      input.setAttribute("class", "form-control brush-name")
+      input.setAttribute("placeholder", "Nom de la zone")
+      input.setAttribute("id", "pinceau_" + z + "_name")
+      div.appendChild(input)
+
+      row.appendChild(div)
+    }
+
+
+
+  }
+
+  function hexToRgbA(hex, opacity){
+    var c
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('')
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',') + ',' + opacity + ')';
+    }
+    throw new Error('Bad Hex');
+  }
+</script>

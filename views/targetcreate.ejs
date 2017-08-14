@@ -13,9 +13,8 @@
       <% include includes/elt-urlimage %>
       <!-- Row : target            -->
       <div class="row"><div class= "col-xs-12" id="targetGrid"></div></div>
-      <!-- Row : zones + save -->
+      <!-- Row save -->
       <div class="row">
-        <% include includes/elt-zones.ejs %>
         <% include includes/elt-valid.ejs %>
       </div>
     </div>
@@ -24,11 +23,13 @@
   </body>
   <% include includes/elt-grid %>
   <% include tools/savingOnServer %>
+  <% include tools/zoneMgnt.ejs %>
   <script src="/socket.io/socket.io.js"></script>
   <script>
   function buildUpPage() {
     var universName = "<%- universName %>"
-    zoneColors = "rgba(44, 55, 86, 0.5)"
+    zoneColor = null
+    zoneName = null
     // Univers name
     document.getElementById("universName").innerHTML = universName
 
@@ -40,6 +41,7 @@
 
     // grid
     tableCreate()
+    zonesCreate()
 
     // Socket management
     client = io.connect('http://192.168.0.27:1992')
