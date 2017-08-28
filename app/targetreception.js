@@ -12,7 +12,7 @@ function manageSockets(socket) {
 function saveTarget(data) {
   toSave = JSON.parse(JSON.stringify(data))
   delete toSave.univers
-//  fs.writeFileSync("./data/targets/" + data.name +".yml", YAML.safeDump(toSave), "UTF-8")
+  fs.writeFileSync("./data/targets/" + toSave.name +".yml", YAML.safeDump(toSave), "UTF-8")
   var univers
   try {
     univers = YAML.safeLoad(fs.readFileSync('./data/' +
@@ -21,9 +21,9 @@ function saveTarget(data) {
   } catch (e) {
     console.log(e)
   }
-  univers.targets.push({ "name": data.name, "description" : "",
-                          "backgroundImage": data.backgroundImage })
-//  fs.writeFileSync("./data/" + data.univers +".yml", YAML.safeDump(univers), "UTF-8")
+  univers[data.univers].targets.push({ "name": toSave.name, "description" : "",
+                          "backgroundImage": toSave.backgroundImage })
+  fs.writeFileSync("./data/" + data.univers +".yml", YAML.safeDump(univers), "UTF-8")
 }
 
 module.exports = manageSockets

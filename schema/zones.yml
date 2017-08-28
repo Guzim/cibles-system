@@ -1,7 +1,0 @@
-id: /Zones
-title: "List of zones for one target"
-type: array
-minItems: 1
-items:
-  $ref: ./Zone
-additionalProperties: false

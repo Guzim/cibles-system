@@ -16,10 +16,62 @@
     var jsonTarget = {
       "univers": document.getElementById("universName").innerHTML,
       "name": document.getElementById("targetName").value,
-      "backgroundImage": document.getElementById("imageUrl").value
+      "backgroundImage": document.getElementById("imageUrl").value,
+
     }
     // Pour chaque zone, ajouter un élément au tableau zones
+    var tbl = document.getElementById("grid")
+    var maxrows= tbl.rows.length
+    var zones = []
+    for (r = 0; r < maxrows; r++) {
+      var maxcols = tbl.rows[r].cells.length
+      for (c = 0; c < maxcols; c ++) {
+        // Get the background color
+        var currentColor = tbl.rows[r].cells[c].style.backgroundColor
+        if (currentColor) {
+          //Get the zone name
+          var zoneName=document.getElementById("pinceau_" + currentColor + "_name").value
+          var point = new Object()
+          point.x = c+1
+          point.y = r+1
+          // Recherche de l'existence de la zone
+          var found = false
+          for (let z of zones) {
+            if (z.name == zoneName) {
+              z.cases.push(point)
+              found=true
+              break
+            }
+          }
+          if (!found) {
+            var newZ = new Object()
+            newZ.name = zoneName
+            newZ.color = currentColor
+            newZ.cases = []
+            newZ.cases.push(point)
+            zones.push(newZ)
+          }
+/*          if (zones["zones"].length==0) {
+            var newZ = new Object()
+            newZ[zoneName] = 1
+            zones["zones"].push (newZ)
 
+          } else {
+            for (let z of zones["zones"]) {
+              if (!z[zoneName]) {
+                var newZ = new Object()
+                newZ[zoneName] = 1
+                zones["zones"].push (newZ)
+              } else {
+                z[zoneName] +=1
+              }
+            }
+          }
+*/
+        }
+      }
+    }
+    jsonTarget.zones = zones
     // On retourne l'objet JSON ainsi construit
     return jsonTarget
   }

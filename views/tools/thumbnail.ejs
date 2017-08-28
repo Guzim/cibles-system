@@ -31,8 +31,10 @@
 
   function createThumbnail(itemsList, containerDOM, baseImgTargetUrl, addPlus) {
     // addPlus is a boolean to know if we want to add the + image
-    for (let u of itemsList) {
-      addOneCaptionToContainer(u, containerDOM, baseImgTargetUrl+u.name)
+    if (itemsList != null) {
+      for (let u of itemsList) {
+        addOneCaptionToContainer(u, containerDOM, baseImgTargetUrl+u.name)
+      }
     }
     if (addPlus) {
       var plusImg = {"name":"Ajouter une cible", "backgroundImage": "https://target-rpg.herokuapp.com/plus.ico"}

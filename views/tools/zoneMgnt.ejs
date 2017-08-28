@@ -6,9 +6,13 @@
 
 
   function zonesCreate() {
-    var zonesColors = ["#f1e8e3", "#edb18f", "#c6b977","#cadfcf",
-                      "#faced3","#c6b9e2","#fea5d3", "#ff68a9",
-                      "#bd345c","#4d681d", "#edce00", "#ece2b4"]
+    var zonesColors = ["rgba(241, 232, 227, 0.75)",
+      "rgba(237, 177, 143, 0.75)", "rgba(198, 185, 119, 0.75)",
+      "rgba(202, 223, 207, 0.75)", "rgba(250, 206, 211, 0.75)",
+      "rgba(198, 185, 226, 0.75)","rgba(254, 165, 211, 0.75)",
+      "rgba(255, 104, 169, 0.75)","rgba(189, 52, 92, 0.75)",
+      "rgba(77, 104, 29, 0.75)", "rgba(237, 206, 0, 0.75)",
+      "rgba(236, 226, 180, 0.75)"]
     var nb_col=0
     var row = null
     for (let z of zonesColors) {
@@ -27,7 +31,7 @@
       image.setAttribute("class", "brush")
       image.setAttribute("id", "pinceau_" + z)
       image.setAttribute("onclick", "javascript:defineZone(this)")
-      image.style.backgroundColor = hexToRgbA(z, 0.75)
+      image.style.backgroundColor = z
       div.appendChild(image)
 
       var input = document.createElement("input")
@@ -39,21 +43,5 @@
 
       row.appendChild(div)
     }
-
-
-
-  }
-
-  function hexToRgbA(hex, opacity){
-    var c
-    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-        c= hex.substring(1).split('')
-        if(c.length== 3){
-            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-        }
-        c= '0x'+c.join('');
-        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',') + ',' + opacity + ')';
-    }
-    throw new Error('Bad Hex');
   }
 </script>

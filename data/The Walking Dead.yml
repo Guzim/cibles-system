@@ -7,10 +7,4 @@
     - Discrétion: "Se cacher, dissimuler un objet, marcher sans faire de bruit, etc ..."
     - Vigilance: "Capacité d’observation, acuité sensorielle, mais également, capacité à rester éveillé et concentré lors d’un tour de garde."
   basesCaracteristiques: "Trois caractéristiques à 6, trois à 10 et une à 14. Vous disposez de 4 points en tout à répartir dans une ou plusieurs caractéristiques à votre guise"
-  targets:
-    - name: "Humain"
-      description: "Cible de base pour un humain"
-      backgroundImage: "https://target-rpg.herokuapp.com/grid-human.png"
-    - name: "Zombie"
-      description: "Cible pour un zombie"
-      backgroundImage: "https://target-rpg.herokuapp.com/grid-zombie.png"
+  targets: ~

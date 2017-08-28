@@ -23,7 +23,7 @@
     document.getElementById("label-targets").setAttribute("class", "label-selected")
     document.getElementById("label-fire").setAttribute("class", "label-unselected")
     document.getElementById("universName").innerHTML = univers.name
-    createThumbnail(universData.targets, "galleryTargets", "/" + univers.name + "/", true)
+    createThumbnail(universData[univers.name].targets, "galleryTargets", "/" + univers.name + "/", true)
   }
   </script>
   </html>
