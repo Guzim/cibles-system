@@ -1,3 +1,4 @@
+The Walking Dead:
   basiques:
     - Constitution: "La constitution du personnage représente son endurance, sa santé physique, sa force physique, sa résistance physique, sa résistance aux maladies, etc ..."
     - Coordination: "La coordination représente l’agilité, la dextérité, la souplesse, la rapidité du personnage. On utilise ce basique pour les combats à distance."
@@ -7,4 +8,3 @@
     - Discrétion: "Se cacher, dissimuler un objet, marcher sans faire de bruit, etc ..."
     - Vigilance: "Capacité d’observation, acuité sensorielle, mais également, capacité à rester éveillé et concentré lors d’un tour de garde."
   basesCaracteristiques: "Trois caractéristiques à 6, trois à 10 et une à 14. Vous disposez de 4 points en tout à répartir dans une ou plusieurs caractéristiques à votre guise"
-  targets: ~
