@@ -15,3 +15,5 @@ Il dispose aussi d'un outil qui permettra d'utiliser les cibles :
 * Impact visualisé sur la cible,
 * Capacité d'ajuster le tir
 * Renvoyer de manière sécurisé l'impact ajusté
+
+
